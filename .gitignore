@@ -1,7 +1,7 @@
 # Secret
 #secret1.py
 scambaiter_backend/secret.py
-scambaiter_backend/mailgun/secret1.py
+scambaiter_backend/mailgun/secret.py
 emails/
 cache/
 models/
