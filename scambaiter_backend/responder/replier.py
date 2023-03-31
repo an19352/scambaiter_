@@ -3,19 +3,19 @@ import random
 import re
 from abc import ABC, abstractmethod
 
-from text_utils.text_filter import *
+from ..text_utils.text_filter import *
 from .gen import gen_text
 from .classifier import classify
 from secret import MAIL_ARCHIVE_DIR, TEMPLATES_DIR # NEO_ENRON_PATH, NEO_RAW_PATH,
 #
-# text_filters = [
-#     RemoveSymbolLineTextFilter(),
-#     RemoveInfoLineTextFilter(),
-#     RemoveSensitiveInfoTextFilter(),
-#     RemoveSpecialPunctuationTextFilter(),
-#     RemoveStrangeWord(),
-#     MultiSymbolIntegrationTextFilter(),
-# ]
+text_filters = [
+    RemoveSymbolLineTextFilter(),
+    RemoveInfoLineTextFilter(),
+    RemoveSensitiveInfoTextFilter(),
+    RemoveSpecialPunctuationTextFilter(),
+    RemoveStrangeWord(),
+    MultiSymbolIntegrationTextFilter(),
+]
 #
 #
 # class Replier(ABC):
