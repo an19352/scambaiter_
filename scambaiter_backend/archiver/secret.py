@@ -1,0 +1,1 @@
+MAIL_ARCHIVE_DIR = "./emails/archive" #archive
