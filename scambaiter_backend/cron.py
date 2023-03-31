@@ -6,7 +6,7 @@ import traceback
 
 # import crawler
 import mailgun
-import responder
+#import responder
 import solution_manager
 from secret import MAIL_SAVE_DIR, MAIL_HANDLED_DIR
 from archiver import archive

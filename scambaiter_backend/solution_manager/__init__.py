@@ -5,3 +5,5 @@ def gen_new_addr(scam_email, sol_name):
     new_addr = get_random_addr()
     store_addr(new_addr, scam_email, sol_name)
     return new_addr
+
+# print(gen_new_addr("piyushbajaj71@gmail.com","Template"))
