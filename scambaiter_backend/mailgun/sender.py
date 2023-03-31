@@ -2,7 +2,7 @@ import requests
 
 # import sys
 # sys.path.append("/Users/piyushbajaj/Desktop/University/Year4/Thesis/scambaiter_backend")
-from secret1 import API_KEY, API_BASE_URL, DOMAIN_NAME
+from secret import API_KEY, API_BASE_URL, DOMAIN_NAME
 
 with open("mailgun/template.html", "r") as f:
     template = f.read()

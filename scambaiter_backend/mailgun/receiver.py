@@ -1,4 +1,4 @@
-from secret1 import MAIL_SAVE_DIR, DOMAIN_NAME
+from secret import MAIL_SAVE_DIR, DOMAIN_NAME
 import json
 import os
 from archiver import archive
