@@ -20,36 +20,36 @@ if not os.path.exists(MODEL_HISTORY_PATH):
         json.dump(d, f)
 
 
-def get_replier_by_name(name):
-    for r in replier_list:
-        if r.name == name:
-            return r
-    return None
-
-
-def get_replier_randomly() -> Replier:
-    with open(MODEL_HISTORY_PATH, "r", encoding="utf8") as f:
-        j = json.load(f)
-
-    count_dict = defaultdict(int, j)
-    res = min(count_dict, key=count_dict.get)
-    count_dict[res] += 1
-    with open(MODEL_HISTORY_PATH, "w", encoding="utf8") as f:
-        json.dump(count_dict, f)
-
-    return get_replier_by_name(res)
-
-
-def get_reply_random(mail_body) -> ReplyResult:
-    r = get_replier_randomly()
-    text = r.get_reply(mail_body)
-    res = ReplyResult(r.name, text)
-    return res
-
-
-def get_reply_with_solution(mail_body, name) -> str:
-    r = get_replier_by_name(name)
-    if r is not None:
-        return r.get_reply(mail_body)
-    else:
-        return "SOLUTION_NOT_FOUND"
+# def get_replier_by_name(name):
+#     for r in replier_list:
+#         if r.name == name:
+#             return r
+#     return None
+#
+#
+# def get_replier_randomly() -> Replier:
+#     with open(MODEL_HISTORY_PATH, "r", encoding="utf8") as f:
+#         j = json.load(f)
+#
+#     count_dict = defaultdict(int, j)
+#     res = min(count_dict, key=count_dict.get)
+#     count_dict[res] += 1
+#     with open(MODEL_HISTORY_PATH, "w", encoding="utf8") as f:
+#         json.dump(count_dict, f)
+#
+#     return get_replier_by_name(res)
+#
+#
+# def get_reply_random(mail_body) -> ReplyResult:
+#     r = get_replier_randomly()
+#     text = r.get_reply(mail_body)
+#     res = ReplyResult(r.name, text)
+#     return res
+#
+#
+# def get_reply_with_solution(mail_body, name) -> str:
+#     r = get_replier_by_name(name)
+#     if r is not None:
+#         return r.get_reply(mail_body)
+#     else:
+#         return "SOLUTION_NOT_FOUND"
