@@ -3,7 +3,7 @@ import os
 from collections import namedtuple, defaultdict
 
 from secret import MODEL_HISTORY_PATH
-from replier import Replier, TemplateReplier # NeoEnronReplier, NeoRawReplier, ClassifierReplier,
+from .replier import Replier, TemplateReplier # NeoEnronReplier, NeoRawReplier, ClassifierReplier,
 
 replier_list = [TemplateReplier()] # [ClassifierReplier(), NeoEnronReplier(), NeoRawReplier()]
 
@@ -54,6 +54,6 @@ def get_reply_random(mail_body) -> ReplyResult:
 #     else:
 #         return "SOLUTION_NOT_FOUND"
 
-r = get_replier_randomly()
-add = "piyushbajaj71@gmail.com"
-print(r.get_reply_by_his(add))
+# r = get_replier_randomly()
+# add = "piyushbajaj71@gmail.com"
+# print(r.get_reply_by_his(add))
