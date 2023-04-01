@@ -12,7 +12,7 @@ from secret import MAIL_SAVE_DIR, MAIL_HANDLED_DIR
 from archiver import archive
 
 
-def main(crawl=True):
+def main():
     print("Hi")
     return
     if crawl:
@@ -105,3 +105,5 @@ def main(crawl=True):
 #     main(crawl=arg_crawl)
 #
 #     os.remove("./lock")
+
+main()
