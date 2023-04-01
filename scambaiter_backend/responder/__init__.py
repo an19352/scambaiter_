@@ -3,21 +3,21 @@ import os
 from collections import namedtuple, defaultdict
 
 from secret import MODEL_HISTORY_PATH
-from .replier import Replier, TemplateReplier # NeoEnronReplier, NeoRawReplier, ClassifierReplier,
+from .replier import Replier, TemplateReplier, ChatReplier1, ChatReplier2 # NeoEnronReplier, NeoRawReplier, ClassifierReplier,
 
-replier_list = [TemplateReplier()] # [ClassifierReplier(), NeoEnronReplier(), NeoRawReplier()]
+replier_list = [TemplateReplier(), ChatReplier1(), ChatReplier2] # [ClassifierReplier(), NeoEnronReplier(), NeoRawReplier()]
 
 ReplyResult = namedtuple("ReplyResult", ["name", "text"])
 
-if not os.path.exists(os.path.dirname(MODEL_HISTORY_PATH)):
-    os.makedirs(os.path.dirname(MODEL_HISTORY_PATH))
-
-if not os.path.exists(MODEL_HISTORY_PATH):
-    d = {}
-    for r in replier_list:
-        d[r.name] = 0
-    with open(MODEL_HISTORY_PATH, "w", encoding="utf8") as f:
-        json.dump(d, f)
+# if not os.path.exists(os.path.dirname(MODEL_HISTORY_PATH)):
+#     os.makedirs(os.path.dirname(MODEL_HISTORY_PATH))
+#
+# if not os.path.exists(MODEL_HISTORY_PATH):
+#     d = {}
+#     for r in replier_list:
+#         d[r.name] = 0
+#     with open(MODEL_HISTORY_PATH, "w", encoding="utf8") as f:
+#         json.dump(d, f)
 
 
 def get_replier_by_name(name):
@@ -54,6 +54,6 @@ def get_reply_random(mail_body) -> ReplyResult:
 #     else:
 #         return "SOLUTION_NOT_FOUND"
 
-# r = get_replier_randomly()
+r = get_replier_by_name("Chat1")
 # add = "piyushbajaj71@gmail.com"
-# print(r.get_reply_by_his(add))
+print(r.get_reply("Hello"))

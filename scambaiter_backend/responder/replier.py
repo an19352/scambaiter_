@@ -4,6 +4,7 @@ import re
 from abc import ABC, abstractmethod
 
 from text_utils.text_filter import *
+from Chatgpt_Replier import gen_text1, gen_text2
 # from .gen import gen_text
 # from .classifier import classify
 from secret import MAIL_ARCHIVE_DIR, TEMPLATES_DIR # NEO_ENRON_PATH, NEO_RAW_PATH,
@@ -87,4 +88,22 @@ class TemplateReplier(Replier):
         with open(os.path.join(template_dir, target_filename), "r", encoding="utf8") as f:
             res = f.read()
 
+        return res + "[bait_end]"
+
+class ChatReplier1(Replier):
+    name = "Chat1"
+
+    def _gen_text(self,prompt) -> str:
+        print(f"Generating reply using {self.name}")
+        res = gen_text1(prompt)
+        return res + "[bait_end]"
+
+
+
+class ChatReplier2(Replier):
+    name = "Chat2"
+
+    def _gen_text(self,prompt) -> str:
+        print(f"Generating reply using {self.name}")
+        res = gen_text1(prompt)
         return res + "[bait_end]"
