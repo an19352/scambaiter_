@@ -54,4 +54,5 @@ def get_reply_random(mail_body) -> ReplyResult:
 #     else:
 #         return "SOLUTION_NOT_FOUND"
 
-print(get_replier_randomly())
+r = get_replier_randomly()
+print(r.get_reply("test"))
