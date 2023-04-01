@@ -3,9 +3,9 @@ import os
 from collections import namedtuple, defaultdict
 
 from secret import MODEL_HISTORY_PATH
-from .replier import Replier, TemplateReplier, ChatReplier1, ChatReplier2 # NeoEnronReplier, NeoRawReplier, ClassifierReplier,
+from replier import Replier, TemplateReplier, ChatReplier1, ChatReplier2 # NeoEnronReplier, NeoRawReplier, ClassifierReplier,
 
-replier_list = [TemplateReplier(), ChatReplier1(), ChatReplier2] # [ClassifierReplier(), NeoEnronReplier(), NeoRawReplier()]
+replier_list = [TemplateReplier(), ChatReplier1(), ChatReplier2()] # [ClassifierReplier(), NeoEnronReplier(), NeoRawReplier()]
 
 ReplyResult = namedtuple("ReplyResult", ["name", "text"])
 
@@ -54,6 +54,6 @@ def get_reply_random(mail_body) -> ReplyResult:
 #     else:
 #         return "SOLUTION_NOT_FOUND"
 
-r = get_replier_by_name("Chat1")
+r = get_replier_by_name("Chat2")
 # add = "piyushbajaj71@gmail.com"
 print(r.get_reply("Hello"))
