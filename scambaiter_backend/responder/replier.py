@@ -105,5 +105,5 @@ class ChatReplier2(Replier):
 
     def _gen_text(self,prompt) -> str:
         print(f"Generating reply using {self.name}")
-        res = gen_text1(prompt)
+        res = gen_text2(prompt)
         return res + "[bait_end]"
