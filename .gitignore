@@ -3,7 +3,6 @@
 scambaiter_backend/secret.py
 scambaiter_backend/mailgun/secret.py
 emails/
-scambaiter_backend/responder/secret.py
 cache/
 models/
 
