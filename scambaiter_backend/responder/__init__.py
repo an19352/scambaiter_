@@ -3,7 +3,7 @@ import os
 from collections import namedtuple, defaultdict
 
 from secret import MODEL_HISTORY_PATH
-from .replier import Replier, TemplateReplier # NeoEnronReplier, NeoRawReplier, ClassifierReplier,
+from replier import Replier, TemplateReplier # NeoEnronReplier, NeoRawReplier, ClassifierReplier,
 
 replier_list = [TemplateReplier()] # [ClassifierReplier(), NeoEnronReplier(), NeoRawReplier()]
 
