@@ -13,7 +13,6 @@ from archiver import archive
 
 
 def main():
-    print("Hi")
     # if crawl:
     #     crawler.fetch_all()
 
