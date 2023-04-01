@@ -55,4 +55,5 @@ def get_reply_random(mail_body) -> ReplyResult:
 #         return "SOLUTION_NOT_FOUND"
 
 r = get_replier_randomly()
-print(r.get_reply("test"))
+add = "piyushbajaj71@gmail.com"
+print(r.get_reply_by_his(add))
