@@ -13,7 +13,6 @@ from archiver import archive
 
 
 def main():
-    return
     # if crawl:
     #     crawler.fetch_all()
 
@@ -66,7 +65,8 @@ def main():
                     continue
 
             try:
-                res_text = replier.get_reply_by_his(scam_email)
+                # res_text = replier.get_reply_by_his(scam_email)
+                res_text = replier.get_reply(text)
             except Exception as e:
                 print("GENERATING ERROR")
                 print(e)
