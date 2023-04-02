@@ -112,13 +112,17 @@ def fetch():
 
         if early_stop:
             break
-    for info in final_info_list:
-        get_body(info)
+    if len(info_list) > 0:
+        print(f"Found {len(info_list)} scam letters in scamletters")
+    # for info in final_info_list:
+    #     get_body(info)
 
 
 def main():
     fetch()
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
+
+main()
