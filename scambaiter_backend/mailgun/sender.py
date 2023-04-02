@@ -28,7 +28,7 @@ def send_email(username, address, target, subject, text):
 
 
 if __name__ == '__main__':
-    print(send_email("Tester", "rg63441@liamacs.email", "piyushbajaj71@gmail.com", "==Test==",
+    print(send_email("Tester", "rg63441@liammacs.email", "piyushbajaj71@gmail.com", "==Test==",
                      "Tvarov has received your email. We must ensure no third parties are required to open the sent to you, so we cannot predict the later of releasing the requested funds over there. Here are the details police state the ount should pay to the account outage.STILL WAITING FOR YOUR REPLY AS SOON AS WE GET TO IT.TRAGUANTEBROZI SNIP INTO REPUSING FOR MONEY WITH IN LAGOS LOYAL.\nBest,\nTester"))
     #print(send_email("Tester", "00o00@mail.sdchaos.top", "iamsdchao@gmail.com", "==Test==",
           #           "Tvarov has received your email. We must ensure no third parties are required to open the sent to you, so we cannot predict the later of releasing the requested funds over there. Here are the details police state the ount should pay to the account outage.STILL WAITING FOR YOUR REPLY AS SOON AS WE GET TO IT.TRAGUANTEBROZI SNIP INTO REPUSING FOR MONEY WITH IN LAGOS LOYAL.\nBest,\nTester"))
