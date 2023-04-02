@@ -4,7 +4,7 @@ import shutil
 import sys
 import traceback
 
-# import crawler
+import crawler
 import mailgun
 import responder
 import solution_manager
@@ -13,7 +13,7 @@ from archiver import archive
 
 
 def main():
-    return 
+    return
     # if crawl:
     #     crawler.fetch_all()
 
