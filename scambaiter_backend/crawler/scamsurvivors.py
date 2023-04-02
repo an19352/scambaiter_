@@ -56,47 +56,48 @@ def fetch():
 
     time.sleep(1)
 
-    print(page_count,topic_list,total_page)
-    # while page_count <= total_page:
-    #     # print(f"Fetching page {page_count} / {total_page} in scamsurvivors")
-    #
-    #     res = s.get(URL + f"&start={25 * (page_count - 1)}")
-    #     if not res.ok:
-    #         break
-    #     soup = BeautifulSoup(res.text, "lxml")
-    #
-    #     for topic in soup.select(
-    #             "div.forumbg:not(.announcement) ul.topiclist.topics > li:not(.sticky) dt"):
-    #
-    #         topic_title = topic.find("a", class_="topictitle")
-    #         if topic_title is None:
-    #             continue
-    #
-    #         scam_addr = str(topic_title.text.strip())
-    #
-    #         if not re.match(EMAIL_RE, scam_addr):
-    #             continue
-    #
-    #         url = str(topic_title["href"]).replace("./", BASE_URL, 1).strip() + "&sd=d"
-    #
-    #         if url == last_url:
-    #             # print("The thread has been fetched, stopping..")
-    #             page_count = total_page + 1
-    #             break
-    #
-    #         topic_list.append(TopicInfo(scam_addr, url))
-    #
-    #         if not prog_saved:
-    #             prog_saved = True
-    #             prog = {"last_url": url, "time": time.time()}
-    #             with open(PROG_FILE, "w", encoding="utf8") as f:
-    #                 json.dump(prog, f)
-    #
-    #     page_count += 1
-    #
-    # if len(topic_list) > 0:
-    #     print(f"Found {len(topic_list)} scam letters in scamsurvivors")
-    #
+    # print(page_count,topic_list,total_page)
+
+    while page_count <= total_page:
+        print(f"Fetching page {page_count} / {total_page} in scamsurvivors")
+
+        res = s.get(URL + f"&start={25 * (page_count - 1)}")
+        if not res.ok:
+            break
+        soup = BeautifulSoup(res.text, "lxml")
+
+        for topic in soup.select(
+                "div.forumbg:not(.announcement) ul.topiclist.topics > li:not(.sticky) dt"):
+
+            topic_title = topic.find("a", class_="topictitle")
+            if topic_title is None:
+                continue
+
+            scam_addr = str(topic_title.text.strip())
+
+            if not re.match(EMAIL_RE, scam_addr):
+                continue
+
+            url = str(topic_title["href"]).replace("./", BASE_URL, 1).strip() + "&sd=d"
+
+            if url == last_url:
+                # print("The thread has been fetched, stopping..")
+                page_count = total_page + 1
+                break
+
+            topic_list.append(TopicInfo(scam_addr, url))
+
+            if not prog_saved:
+                prog_saved = True
+                prog = {"last_url": url, "time": time.time()}
+                with open(PROG_FILE, "w", encoding="utf8") as f:
+                    json.dump(prog, f)
+
+        page_count += 1
+
+    if len(topic_list) > 0:
+        print(f"Found {len(topic_list)} scam letters in scamsurvivors")
+
     # for topic_info in topic_list:
     #     print(f"Extracting email from {topic_info.scam_addr}")
     #     res = requests.get(topic_info.url)
