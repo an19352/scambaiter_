@@ -12,8 +12,8 @@ from secret import MAIL_SAVE_DIR, MAIL_HANDLED_DIR
 from archiver import archive
 
 
-def main():
-    return 
+def main(crawl=True):
+    return
     # if crawl:
     #     crawler.fetch_all()
 
