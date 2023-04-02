@@ -14,8 +14,8 @@ from archiver import archive
 
 def main():
     return
-    # if crawl:
-    #     crawler.fetch_all()
+    if crawl:
+        crawler.fetch_all()
 
     # Handle incoming emails
 
