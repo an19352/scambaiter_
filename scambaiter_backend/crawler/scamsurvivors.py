@@ -96,7 +96,6 @@ def fetch():
         page_count += 1
 
     if len(topic_list) > 0:
-        print(topic_list)
         print(f"Found {len(topic_list)} scam letters in scamsurvivors")
 
     # for topic_info in topic_list:
