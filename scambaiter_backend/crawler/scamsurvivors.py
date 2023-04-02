@@ -98,38 +98,38 @@ def fetch():
     if len(topic_list) > 0:
         print(f"Found {len(topic_list)} scam letters in scamsurvivors")
 
-    # for topic_info in topic_list:
-    #     print(f"Extracting email from {topic_info.scam_addr}")
-    #     res = requests.get(topic_info.url)
-    #
-    #     if not res.ok:
-    #         print(f"Cannot fetch {topic_info.url}, {res.status_code}")
-    #         time.sleep(3 * 60)
-    #         continue
-    #
-    #     soup = BeautifulSoup(res.text, "lxml")
-    #     d = soup.select_one("div.post.bg2 > div > div.postbody > div.content > blockquote > div")
-    #     if d is None:
-    #         print(f"Cannot extract the body for {topic_info.url}")
-    #         continue
-    #
-    #     content = d.get_text("\n")
-    #
-    #     try:
-    #         if detect(content) != 'en':
-    #             continue
-    #     except LangDetectException:
-    #         continue
-    #
-    #     title = content.split("\n", maxsplit=1)[0][:30]
-    #
-    #     info = {"title": title, "content": content, "url": topic_info.url, "from": topic_info.scam_addr.lower()}
-    #
-    #     file_name = topic_info.url.rsplit("/", 1)[1].split("&")[1].replace("t=", "ss_")
-    #     output_path = f"{MAIL_SAVE_DIR}/{file_name}.json"
-    #
-    #     with open(output_path, "w", encoding="utf8") as f:
-    #         json.dump(info, f, indent=4)
+    for topic_info in topic_list:
+        print(f"Extracting email from {topic_info.scam_addr}")
+        res = requests.get(topic_info.url)
+
+        if not res.ok:
+            print(f"Cannot fetch {topic_info.url}, {res.status_code}")
+            time.sleep(3 * 60)
+            continue
+
+        soup = BeautifulSoup(res.text, "lxml")
+        d = soup.select_one("div.post.bg2 > div > div.postbody > div.content > blockquote > div")
+        if d is None:
+            print(f"Cannot extract the body for {topic_info.url}")
+            continue
+
+        content = d.get_text("\n")
+
+        try:
+            if detect(content) != 'en':
+                continue
+        except LangDetectException:
+            continue
+
+        title = content.split("\n", maxsplit=1)[0][:30]
+
+        info = {"title": title, "content": content, "url": topic_info.url, "from": topic_info.scam_addr.lower()}
+
+        file_name = topic_info.url.rsplit("/", 1)[1].split("&")[1].replace("t=", "ss_")
+        output_path = f"{MAIL_SAVE_DIR}/{file_name}.json"
+
+        with open(output_path, "w", encoding="utf8") as f:
+            json.dump(info, f, indent=4)
 
 
 # if __name__ == '__main__':
