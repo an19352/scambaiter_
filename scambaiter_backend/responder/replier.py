@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 from text_utils.text_filter import *
 from .Chatgpt_Replier import gen_text1, gen_text2
 # from .gen import gen_text
-# from .classifier import classify
+from .classifier import classify
 from secret import MAIL_ARCHIVE_DIR, TEMPLATES_DIR # NEO_ENRON_PATH, NEO_RAW_PATH,
 
 text_filters = [
@@ -63,20 +63,20 @@ class Replier(ABC):
 #         print(f"Generating reply using {self.name}")
 #         return gen_text(NEO_RAW_PATH, prompt)
 #
-#
-# class ClassifierReplier(Replier):
-#     name = "Classifier"
-#
-#     def _gen_text(self, prompt):
-#         scam_type = classify(prompt)
-#         template_dir = os.path.join(TEMPLATES_DIR, scam_type)
-#         target_filename = random.choice(os.listdir(template_dir))
-#
-#         with open(os.path.join(template_dir, target_filename), "r", encoding="utf8") as f:
-#             res = f.read()
-#
-#         return res + "[bait_end]"
-#
+
+class ClassifierReplier(Replier):
+    name = "Classifier"
+
+    def _gen_text(self, prompt):
+        scam_type = classify(prompt)
+        template_dir = os.path.join(TEMPLATES_DIR, scam_type)
+        target_filename = random.choice(os.listdir(template_dir))
+
+        with open(os.path.join(template_dir, target_filename), "r", encoding="utf8") as f:
+            res = f.read()
+
+        return res + "[bait_end]"
+
 
 class TemplateReplier(Replier):
     name = "Template"
