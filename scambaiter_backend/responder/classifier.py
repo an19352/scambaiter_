@@ -1,5 +1,5 @@
-# from flair.data import Sentence
-# from flair.models import TextClassifier
+from flair.data import Sentence
+from flair.models import TextClassifier
 
 from secret import CLASSIFIER_PATH
 #
