@@ -1,7 +1,7 @@
-from flair.data import Sentence
-from flair.models import TextClassifier
+# from flair.data import Sentence
+# from flair.models import TextClassifier
 
-# from secret import CLASSIFIER_PATH
+from secret import CLASSIFIER_PATH
 #
 #
 # def classify(content) -> str:
