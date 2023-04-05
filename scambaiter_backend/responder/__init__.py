@@ -54,6 +54,6 @@ def get_reply_random(mail_body) -> ReplyResult:
 #     else:
 #         return "SOLUTION_NOT_FOUND"
 
-r = get_replier_by_name("Chat2")
+r = get_replier_by_name("Chat1")
 # # add = "piyushbajaj71@gmail.com"
 print(r.get_reply("Hello"))
