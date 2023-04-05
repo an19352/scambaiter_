@@ -13,8 +13,8 @@ from archiver import archive
 
 
 def main(crawl=True):
-    if crawl:
-        crawler.fetch_all()
+    # if crawl:
+    #     crawler.fetch_all()
 
     # Handle incoming emails
 
