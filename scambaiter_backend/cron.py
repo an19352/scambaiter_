@@ -13,8 +13,8 @@ from archiver import archive
 
 
 def main(crawl=True):
-    # if crawl:
-    #     crawler.fetch_all()
+    if crawl:
+        crawler.fetch_all()
 
     # Handle incoming emails
 
@@ -22,7 +22,7 @@ def main(crawl=True):
     count = 0
 
     for email_filename in email_filenames:
-        if count < 75:
+        if count < 10:
             try:
                 print(f"Handling {email_filename}")
                 email_path = os.path.join(MAIL_SAVE_DIR, email_filename)
