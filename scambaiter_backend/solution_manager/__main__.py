@@ -11,4 +11,4 @@ print(scam_exists("piyushbajaj71@gmail.com"))
 # print(get_sol_name("cj27795@mail.sdchaos.top"))
 
 store = get_stored_info("xn14328@liammacs.email", "piyushbajaj71@gmail.com")
-#print(store)
+print(store)
