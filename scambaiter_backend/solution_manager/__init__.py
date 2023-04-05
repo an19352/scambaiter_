@@ -6,4 +6,4 @@ def gen_new_addr(scam_email, sol_name):
     store_addr(new_addr, scam_email, sol_name)
     return new_addr
 
-# print(gen_new_addr("piyushbajaj71@gmail.com","Template"))
+print(gen_new_addr("piyushbajaj71@gmail.com","Template"))
