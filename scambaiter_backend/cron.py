@@ -4,17 +4,18 @@ import shutil
 import sys
 import traceback
 
-import crawler
+# import crawler
 import mailgun
-import responder
+# import responder
 import solution_manager
 from secret import MAIL_SAVE_DIR, MAIL_HANDLED_DIR
 from archiver import archive
 
 
 def main(crawl=True):
-    if crawl:
-        crawler.fetch_all()
+    return
+    # if crawl:
+    #     crawler.fetch_all()
 
     # Handle incoming emails
 
@@ -97,17 +98,17 @@ def main(crawl=True):
             break
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
+#
+#     if os.path.exists("./lock"):
+#         quit(-1)
+#
+#     with open("./lock", "w") as f:
+#         f.write("Running")
+#
+#     arg_crawl = not ("--no-crawl" in sys.argv)
+#     main(crawl=arg_crawl)
+#
+#     os.remove("./lock")
 
-    if os.path.exists("./lock"):
-        quit(-1)
-
-    with open("./lock", "w") as f:
-        f.write("Running")
-
-    arg_crawl = not ("--no-crawl" in sys.argv)
-    main(crawl=arg_crawl)
-
-    os.remove("./lock")
-
-# main()
+main()
