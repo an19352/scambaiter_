@@ -1,7 +1,7 @@
 from flair.data import Sentence
 from flair.models import TextClassifier
 
-from secret import CLASSIFIER_PATH
+from secret import CLASSIFIER_PATH, CONTENT
 
 
 def classify(content) -> str:
@@ -14,4 +14,4 @@ def classify(content) -> str:
     return label.value.upper()
 
 
-print(classify("Hello"))
+print(classify(CONTENT))
