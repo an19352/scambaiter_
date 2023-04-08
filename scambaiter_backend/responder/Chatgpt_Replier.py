@@ -30,7 +30,7 @@ def gen_text2(prompt):
   messages = [{"role": "system", "content": "You are good at pattern following. You are a person and not a language model. Do not call them a scam."}]
   prompt = "Reply without any signature :" + prompt
 
-  file1 = fileread(FILENAME1,["user1","assistant1"],6)
+  file1 = fileread(FILENAME1,["user1","assistant1"],4)
   messages.extend(file1)
 
   # file2 = fileread(FILENAME2,["user2","assistant2"],4)
