@@ -81,7 +81,7 @@ def main(crawl=True):
                     res_text += f"\nBest,\n{stored_info.username}"
 
                 else:
-                    res_text += f"\n{stored_info.username}"
+                    res_text += f"\n\nBest wishes\n{stored_info.username}"
 
                 send_result = mailgun.send_email(stored_info.username, stored_info.addr, scam_email, subject, res_text)
                 if send_result:

@@ -26,7 +26,7 @@ def gen_text1(prompt):
 
 
 def gen_text2(prompt):
-  messages = [{"role": "system", "content": "You are good at pattern following. You are not a language model"}]
+  messages = [{"role": "system", "content": "You are good at pattern following. You are not a language model. Do not call them a scam."}]
   prompt = "Reply without any signature :" + prompt
 
   file1 = fileread(FILENAME1,["user1","assistant1"],4)
@@ -39,7 +39,7 @@ def gen_text2(prompt):
   # messages.extend(file3)
 
   messages.append({"role": "user", "content": prompt})
-  completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages= messages)
+  completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages= messages, temperature = 0.2, top_p = 0.2)
 
   res = completion.choices[0].message.content
   res = re.sub("\[.*?\]", "", res)
