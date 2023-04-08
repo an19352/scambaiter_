@@ -22,7 +22,7 @@ def main(crawl=True):
     count = 0
 
     for email_filename in email_filenames:
-        if count < 71:
+        if count < 40:
             try:
                 print(f"Handling {email_filename}")
                 email_path = os.path.join(MAIL_SAVE_DIR, email_filename)
@@ -101,17 +101,17 @@ def main(crawl=True):
             break
 
 
-if __name__ == '__main__':
-
-    if os.path.exists("./lock"):
-        quit(-1)
-
-    with open("./lock", "w") as f:
-        f.write("Running")
-
-    arg_crawl = not ("--no-crawl" in sys.argv)
-    main(crawl=arg_crawl)
-
-    os.remove("./lock")
+# if __name__ == '__main__':
+#
+#     if os.path.exists("./lock"):
+#         quit(-1)
+#
+#     with open("./lock", "w") as f:
+#         f.write("Running")
+#
+#     arg_crawl = not ("--no-crawl" in sys.argv)
+#     main(crawl=arg_crawl)
+#
+#     os.remove("./lock")
 
 # main()
