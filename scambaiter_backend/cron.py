@@ -22,7 +22,7 @@ def main(crawl=True):
     count = 0
 
     for email_filename in email_filenames:
-        if count < 10:
+        if count < 6:
             try:
                 print(f"Handling {email_filename}")
                 email_path = os.path.join(MAIL_SAVE_DIR, email_filename)
@@ -77,11 +77,14 @@ def main(crawl=True):
                     return
 
                     # Add Signature
-                # if replier.name == "Classifier":
-                res_text += f"\nBest,\n{stored_info.username}"
+                if replier.name == "Classifier":
+                    res_text += f"\nBest,\n{stored_info.username}"
 
-                # else:
-                #     res_text += f"\n\nBest wishes\n{stored_info.username}"
+                if replier.name == "Chat1":
+                    res_text += f"\n\nBest wishes\n{stored_info.username}"
+
+                if replier.name == "Chat2":
+                    res_text += f"\n\nBest wishes\n{stored_info.username}"
 
                 send_result = mailgun.send_email(stored_info.username, stored_info.addr, scam_email, subject, res_text)
                 if send_result:
