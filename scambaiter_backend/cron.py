@@ -77,7 +77,7 @@ def main(crawl=True):
                     return
 
                     # Add Signature
-                if replier.name is "Classifier":
+                if replier.name == "Classifier":
                     res_text += f"\nBest,\n{stored_info.username}"
 
                 else:
