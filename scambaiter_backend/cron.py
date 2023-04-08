@@ -77,7 +77,11 @@ def main(crawl=True):
                     return
 
                     # Add Signature
-                res_text += f"\nBest,\n{stored_info.username}"
+                if replier.name is "Classifier":
+                    res_text += f"\nBest,\n{stored_info.username}"
+
+                else:
+                    res_text += f"\n{stored_info.username}"
 
                 send_result = mailgun.send_email(stored_info.username, stored_info.addr, scam_email, subject, res_text)
                 if send_result:
