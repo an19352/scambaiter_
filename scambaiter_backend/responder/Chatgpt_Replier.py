@@ -2,8 +2,9 @@ import os
 import openai
 import json
 import re
-from secret import OPENAI_API_KEY, FILENAME1, FILENAME2, FILENAME3
+from secret import FILENAME1, FILENAME2, FILENAME3, FILENAME4, OPENAI_API_KEY
 # from secret import CONTENT
+
 
 openai.api_key = OPENAI_API_KEY # os.getenv("OPENAI_API_KEY")
 
@@ -26,17 +27,20 @@ def gen_text1(prompt):
 
 
 def gen_text2(prompt):
-  messages = [{"role": "system", "content": "You are good at pattern following. You are not a language model. Do not call them a scam."}]
+  messages = [{"role": "system", "content": "You are good at pattern following. You are a person and not a language model. Do not call them a scam."}]
   prompt = "Reply without any signature :" + prompt
 
-  file1 = fileread(FILENAME1,["user1","assistant1"],4)
+  file1 = fileread(FILENAME1,["user1","assistant1"],6)
   messages.extend(file1)
 
   # file2 = fileread(FILENAME2,["user2","assistant2"],4)
   # messages.extend(file2)
 
-  # file3 = fileread(FILENAME3,["user3","assistant3"],4)
-  # messages.extend(file3)
+  file3 = fileread(FILENAME3,["user3","assistant3"],4)
+  messages.extend(file3)
+
+  file4 = fileread(FILENAME4, ["user4", "assistant4"], 4)
+  messages.extend(file4)
 
   messages.append({"role": "user", "content": prompt})
   completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages= messages, temperature = 0.2, top_p = 0.2)
@@ -44,7 +48,7 @@ def gen_text2(prompt):
   res = completion.choices[0].message.content
   res = re.sub("\[.*?\]", "", res)
 
-  # count = completion.usage.total_tokens
+  count = completion.usage.prompt_tokens
 
   return res
   # return res, count
