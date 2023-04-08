@@ -77,8 +77,7 @@ def main(crawl=True):
                     return
 
                     # Add Signature
-                if replier.name == "Classifier":
-                    res_text += f"\n\nBest wishes,\n{stored_info.username}"
+                res_text += f"\n\nBest wishes,\n{stored_info.username}"
 
                 send_result = mailgun.send_email(stored_info.username, stored_info.addr, scam_email, subject, res_text)
                 if send_result:
