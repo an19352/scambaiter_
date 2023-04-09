@@ -5,6 +5,7 @@ import sys
 import traceback
 
 import crawler
+import tiktoken
 import mailgun
 import responder
 import solution_manager
@@ -30,6 +31,14 @@ def main(crawl=True):
                     email_obj = json.load(f)
 
                 text = email_obj["content"]
+
+                encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
+                num_tokens = len(encoding.encode(text))
+                if num_tokens > 900:
+                    print("This email is too long")
+                    os.remove(email_path)
+                    continue
+
                 subject = str(email_obj["title"])
                 if not subject.startswith("Re:"):
                     subject = "Re: " + subject

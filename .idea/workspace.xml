@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b78624d-8af1-4268-b734-8c5ff3afc8e3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scambaiter_backend/cron.py" beforeDir="false" afterPath="$PROJECT_DIR$/scambaiter_backend/cron.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scambaiter_backend/mailgun/sender.py" beforeDir="false" afterPath="$PROJECT_DIR$/scambaiter_backend/mailgun/sender.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +93,7 @@
       <workItem from="1680295321383" duration="611000" />
       <workItem from="1680296132131" duration="20288000" />
       <workItem from="1680566851880" duration="759000" />
+      <workItem from="1681010819216" duration="538000" />
     </task>
     <servers />
   </component>
