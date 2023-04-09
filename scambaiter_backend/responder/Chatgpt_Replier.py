@@ -1,10 +1,10 @@
 import os
 import openai
+import tiktoken
 import json
 import re
-from secret import FILENAME1, FILENAME2, FILENAME3, FILENAME4, OPENAI_API_KEY
+from secret import FILENAME1, FILENAME2, FILENAME3, OPENAI_API_KEY
 # from secret import CONTENT
-
 
 openai.api_key = OPENAI_API_KEY # os.getenv("OPENAI_API_KEY")
 
@@ -33,26 +33,30 @@ def gen_text2(prompt):
   file1 = fileread(FILENAME1,["user1","assistant1"],4)
   messages.extend(file1)
 
-  # file2 = fileread(FILENAME2,["user2","assistant2"],4)
-  # messages.extend(file2)
+  file2 = fileread(FILENAME2,["user2","assistant2"],4)
+  messages.extend(file2)
 
   file3 = fileread(FILENAME3,["user3","assistant3"],4)
   messages.extend(file3)
 
-  file4 = fileread(FILENAME4, ["user4", "assistant4"], 4)
-  messages.extend(file4)
-
   messages.append({"role": "user", "content": prompt})
+
+  # encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
+  # tik = ""
+  # for message in messages:
+  #   tik += message['content']
+  # num_tokens = len(encoding.encode(tik))
+
   completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages= messages, temperature = 0.2, top_p = 0.2)
 
   res = completion.choices[0].message.content
   res = re.sub("\[.*?\]", "", res)
 
-  count = completion.usage.prompt_tokens
+  # count = completion.usage.prompt_tokens
 
   return res
   # return res, count
-
+  # return res, num_tokens
 
 def fileread(filename, names, a):
   with open(filename,"r", encoding="utf8") as f:
@@ -71,7 +75,7 @@ def fileread(filename, names, a):
   return var1
 
 # print(gen_text1(CONTENT))
-# print(gen_text2(CONTENT))
+# print(gen_text2(" "))
 # list = fileread("../../../scambaiting_dataset-master/eliza_dane_green_days.json",["kg","pb"],4)
 # for i in list:
 #   print(i)
