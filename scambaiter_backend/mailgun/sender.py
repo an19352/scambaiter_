@@ -13,7 +13,7 @@ def send_email(username, address, target, subject, text):
         target = [target]
 
     print(f"Trying to send an email from {address} to {target}")
-    
+
     res = requests.post(
         f"{API_BASE_URL}/messages",
         auth=("api", API_KEY),
