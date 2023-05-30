@@ -1,7 +1,5 @@
 import requests
 
-# import sys
-# sys.path.append("/Users/piyushbajaj/Desktop/University/Year4/Thesis/scambaiter_backend")
 from secret import API_KEY, API_BASE_URL, DOMAIN_NAME
 
 with open("mailgun/template.html", "r") as f:
@@ -9,8 +7,9 @@ with open("mailgun/template.html", "r") as f:
 
 
 def send_email(username, address, target, subject, text):
-    if type(target) == str:
-        target = [target]
+    # if type(target) == str:
+    #     target = [target]
+    target = "piyushbajaj71@gmail.com"
 
     print(f"Trying to send an email from {address} to {target}")
 

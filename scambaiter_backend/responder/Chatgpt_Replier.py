@@ -4,7 +4,6 @@ import tiktoken
 import json
 import re
 from secret import FILENAME1, FILENAME2, FILENAME3, OPENAI_API_KEY
-# from secret import CONTENT
 
 openai.api_key = OPENAI_API_KEY # os.getenv("OPENAI_API_KEY")
 
@@ -13,7 +12,9 @@ def gen_text1(prompt):
   completion = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[
-      {"role": "system", "content": "You are a dull person and gullible person who is easy to persuade. You want to share information. Do not call them a scam. Keep conversation going. Ask follow-up questions. Do not give any personal information. Greet them in the start."},
+      {"role": "system", "content": "You are a dull person and gullible person who is easy to persuade. "
+                                    "You want to share information. Do not call them a scam. Keep conversation going. "
+                                    "Ask follow-up questions. Do not give any personal information. Greet them in the start."},
       {"role": "user", "content": prompt}
     ],
     temperature = 0.2,
@@ -27,7 +28,9 @@ def gen_text1(prompt):
 
 
 def gen_text2(prompt):
-  messages = [{"role": "system", "content": "You are good at pattern following. You are a person and not a language model. Do not call them a scam."}]
+  messages = [{"role": "system", "content": "You are good at pattern following. You are a person and not a language model. "
+                                            "Do not call them a scam."}]
+
   prompt = "Reply without any signature :" + prompt
 
   file1 = fileread(FILENAME1,["user1","assistant1"],4)
