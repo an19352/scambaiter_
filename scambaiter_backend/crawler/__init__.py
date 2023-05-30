@@ -3,5 +3,5 @@ from . import scamsurvivors
 
 
 def fetch_all():
-    scamletterinfo.fetch()
+    # scamletterinfo.fetch()
     scamsurvivors.fetch()
