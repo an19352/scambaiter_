@@ -23,7 +23,7 @@ def main(crawl=True):
     count = 0
 
     for email_filename in email_filenames:
-        if count < 51:
+        if count < 5:
             try:
                 print(f"Handling {email_filename}")
                 email_path = os.path.join(MAIL_SAVE_DIR, email_filename)

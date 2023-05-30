@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b78624d-8af1-4268-b734-8c5ff3afc8e3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scambaiter_backend/cron.py" beforeDir="false" afterPath="$PROJECT_DIR$/scambaiter_backend/cron.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scambaiter_backend/mailgun/sender.py" beforeDir="false" afterPath="$PROJECT_DIR$/scambaiter_backend/mailgun/sender.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scambaiter_backend/responder/Chatgpt_Replier.py" beforeDir="false" afterPath="$PROJECT_DIR$/scambaiter_backend/responder/Chatgpt_Replier.py" afterDir="false" />
-    </list>
+    <list default="true" id="7b78624d-8af1-4268-b734-8c5ff3afc8e3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +102,7 @@
       <workItem from="1684016241730" duration="4120000" />
       <workItem from="1684041333561" duration="45267000" />
       <workItem from="1684400774409" duration="9790000" />
-      <workItem from="1685465997972" duration="547000" />
+      <workItem from="1685465997972" duration="1027000" />
     </task>
     <servers />
   </component>
